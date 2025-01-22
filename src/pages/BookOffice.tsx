@@ -20,7 +20,7 @@ export default function BookOffice() {
         phone_number: "",
         started_at: "",
         office_space_id: "",
-        totalAmountWithUniqueCode: 0,
+        total_amount: 0,
     });
 
     const [formErrors, setFormErrors] = useState<z.ZodIssue[]>([]);
@@ -112,7 +112,7 @@ export default function BookOffice() {
                 },
                 {
                     headers: {
-                        "X-API-KEY": "fajsdhfsdh3y4893274fwdfwrf322f"
+                        "X-API-KEY": "fajsdhfsdh3y4893274fwdfwrf322f",
                     },
                 }
             );
@@ -137,6 +137,7 @@ export default function BookOffice() {
             setIsLoading(false);
         }
     };
+    
 
     return (
         <>
@@ -156,8 +157,7 @@ export default function BookOffice() {
                 />
             </div>
             <form
-                method="POST"
-                action="booking-finished.html"
+                onSubmit={handleSubmit}
                 className="relative flex justify-center max-w-[1130px] mx-auto gap-[30px] mb-20 z-20"
             >
                 <div className="flex flex-col shrink-0 w-[500px] h-fit rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
@@ -222,7 +222,7 @@ export default function BookOffice() {
                                 />
                                 <input
                                     type="tel"
-                                    name="phone"
+                                    name="phone_number"
                                     onChange={handleChange}
                                     value={formData.phone_number}
                                     id="phone"
@@ -246,7 +246,7 @@ export default function BookOffice() {
                                 />
                                 <input
                                     type="date"
-                                    name="date"
+                                    name="started_at"
                                     onChange={handleChange}
                                     value={formData.started_at}
                                     id="date"
@@ -385,7 +385,6 @@ export default function BookOffice() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        onClick={handleSubmit}
                         className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
                     >
                         <span>{isLoading ? "Loading..." : "I have already paid"}</span>

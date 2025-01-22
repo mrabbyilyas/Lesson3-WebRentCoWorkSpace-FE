@@ -219,7 +219,7 @@ export default function Details() {
                                 className="h-full w-full border-0"
                                 frameBorder={0}
                                 src={
-                                    "https://www.google.com/maps/embed/v1/place?q=${office.address},&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                                    `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(office.address)}`
                                 }
                             />
                         </div>

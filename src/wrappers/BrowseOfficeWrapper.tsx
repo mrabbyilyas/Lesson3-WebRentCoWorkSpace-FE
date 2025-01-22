@@ -44,11 +44,14 @@ export default function BrowseOfficeWrapper() {
                 For Your Better Productivity.
             </h2>
             <div className="grid grid-cols-3 gap-[30px]">
-                {offices.map((office) => (
-                    <Link to={`/office/${office.slug}`}>
-                        <OfficeCard key={office.id} office={office}></OfficeCard>
-                    </Link>
-                ))}
+                {offices
+                    .sort(() => Math.random() - 0.5) // Mengacak urutan
+                    .slice(0, 6) // Mengambil 6 item pertama setelah diacak
+                    .map((office) => (
+                        <Link to={`/office/${office.slug}`} key={office.id}>
+                            <OfficeCard office={office}></OfficeCard>
+                        </Link>
+                    ))}
             </div>
         </section>
     );
