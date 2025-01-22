@@ -2,8 +2,8 @@ export default function BrowseBenefitWrapper() {
     return (
         <section id="Benefits" className="flex items-center justify-center w-[1015px] mx-auto gap-[100px] mt-[100px]">
             <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
-            We Might Good <br />
-            For Your Business
+                We Might Good <br />
+                For Your Business
             </h2>
             <div className="grid grid-cols-2 gap-[30px]">
                 <div className="flex items-center gap-4">

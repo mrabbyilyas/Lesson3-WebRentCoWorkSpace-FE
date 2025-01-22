@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Navbar from "../components/Navbar";
 import { Office } from "../types/type";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -49,17 +49,18 @@ export default function Details() {
                 <div className="swiper w-full">
                     <div className="swiper-wrapper">
                         <Swiper
-                        direction='horizontal'
-                        spaceBetween= {10}
-                        slidesPerView= "auto"
-                        slidesOffsetAfter= {10}
-                        slidesOffsetBefore= {10}>
+                            direction="horizontal"
+                            spaceBetween={10}
+                            slidesPerView="auto"
+                            slidesOffsetAfter={10}
+                            slidesOffsetBefore={10}
+                        >
                             <SwiperSlide className="!w-fit">
                                 <div className="w-[700px] h-[550px] overflow-hidden">
                                     <img
-                                    src={`${baseURL}/${office.thumbnail}`}
-                                    className="w-full h-full object-cover"
-                                    alt="thumbnail"
+                                        src={`${baseURL}/${office.thumbnail}`}
+                                        className="w-full h-full object-cover"
+                                        alt="thumbnail"
                                     />
                                 </div>
                             </SwiperSlide>
@@ -67,9 +68,9 @@ export default function Details() {
                                 <SwiperSlide key={officeImage.id} className="!w-fit">
                                     <div className="w-[700px] h-[550px] overflow-hidden">
                                         <img
-                                        src={`${baseURL}/${officeImage.image}`}
-                                        className="w-full h-full object-cover"
-                                        alt="thumbnail"
+                                            src={`${baseURL}/${officeImage.image}`}
+                                            className="w-full h-full object-cover"
+                                            alt="thumbnail"
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -78,7 +79,10 @@ export default function Details() {
                     </div>
                 </div>
             </section>
-            <section id="Details" className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10">
+            <section
+                id="Details"
+                className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
+            >
                 <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
                     <p className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
                         Popular
@@ -90,9 +94,9 @@ export default function Details() {
                             </h1>
                             <div className="flex items-center gap-[6px] mt-[10px]">
                                 <img
-                                src="/assets/images/icons/location.svg"
-                                className="w-6 h-6"
-                                alt="icon"
+                                    src="/assets/images/icons/location.svg"
+                                    className="w-6 h-6"
+                                    alt="icon"
                                 />
                                 <p className="font-semibold">{office.city.name}</p>
                             </div>
@@ -100,37 +104,35 @@ export default function Details() {
                         <div className="flex flex-col gap-[6px]">
                             <div className="flex items-center gap-1">
                                 <img
-                                src="/assets/images/icons/Star 1.svg"
-                                className="w-5 h-5"
-                                alt="star"
+                                    src="/assets/images/icons/Star 1.svg"
+                                    className="w-5 h-5"
+                                    alt="star"
                                 />
                                 <img
-                                src="/assets/images/icons/Star 1.svg"
-                                className="w-5 h-5"
-                                alt="star"
+                                    src="/assets/images/icons/Star 1.svg"
+                                    className="w-5 h-5"
+                                    alt="star"
                                 />
                                 <img
-                                src="/assets/images/icons/Star 1.svg"
-                                className="w-5 h-5"
-                                alt="star"
+                                    src="/assets/images/icons/Star 1.svg"
+                                    className="w-5 h-5"
+                                    alt="star"
                                 />
                                 <img
-                                src="/assets/images/icons/Star 1.svg"
-                                className="w-5 h-5"
-                                alt="star"
+                                    src="/assets/images/icons/Star 1.svg"
+                                    className="w-5 h-5"
+                                    alt="star"
                                 />
                                 <img
-                                src="/assets/images/icons/Star 5.svg"
-                                className="w-5 h-5"
-                                alt="star"
+                                    src="/assets/images/icons/Star 5.svg"
+                                    className="w-5 h-5"
+                                    alt="star"
                                 />
                             </div>
                             <p className="font-semibold text-right">4.5/5 (19,384)</p>
                         </div>
                     </div>
-                    <p className="leading-[30px]">
-                        {office.about}
-                    </p>
+                    <p className="leading-[30px]">{office.about}</p>
                     <hr className="border-[#F6F5FD]" />
                     <h2 className="font-bold">You Get What You Need Most</h2>
                     <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
@@ -163,7 +165,9 @@ export default function Details() {
                                 alt="icon"
                             />
                             <div className="flex flex-col gap-[2px]">
-                                <p className="font-bold text-lg leading-[24px]">Sustainbility</p>
+                                <p className="font-bold text-lg leading-[24px]">
+                                    Sustainbility
+                                </p>
                                 <p className="text-sm leading-[21px]">Long-term Goals</p>
                             </div>
                         </div>
@@ -207,19 +211,24 @@ export default function Details() {
                         <p>{office.address}</p>
                     </div>
                     <div className="overflow-hidden w-full h-[280px]">
-                        <div id="my-map-display" className="h-full w-full max-w-[none] bg-none">
-                        <iframe
-                            className="h-full w-full border-0"
-                            frameBorder={0}
-                            src={'https://www.google.com/maps/embed/v1/place?q=${office.address},&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8'}
-                        />
+                        <div
+                            id="my-map-display"
+                            className="h-full w-full max-w-[none] bg-none"
+                        >
+                            <iframe
+                                className="h-full w-full border-0"
+                                frameBorder={0}
+                                src={
+                                    "https://www.google.com/maps/embed/v1/place?q=${office.address},&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                                }
+                            />
                         </div>
                         <a
-                        className="from-embedmap-code"
-                        href="https://www.bootstrapskins.com/themes"
-                        id="enable-map-data"
+                            className="from-embedmap-code"
+                            href="https://www.bootstrapskins.com/themes"
+                            id="enable-map-data"
                         >
-                        premium bootstrap themes
+                            premium bootstrap themes
                         </a>
                     </div>
                 </div>
@@ -227,43 +236,42 @@ export default function Details() {
                     <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
                         <div>
                             <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
-                                Rp {office.price.toLocaleString('id-ID')}
+                                Rp {office.price.toLocaleString("id-ID")}
                             </p>
-                            <p className="font-semibold mt-1">For {office.duration} days working</p>
+                            <p className="font-semibold mt-1">
+                                For {office.duration} days working
+                            </p>
                         </div>
                         <hr className="border-[#F6F5FD]" />
                         <div className="flex flex-col gap-5">
                             {office.benefits.map((benefit) => (
                                 <div key={benefit.id} className="flex items-center gap-3">
                                     <img
-                                    src="/assets/images/icons/verify.svg"
-                                    className="w-[30px] h-[30px]"
-                                    alt="icon"
+                                        src="/assets/images/icons/verify.svg"
+                                        className="w-[30px] h-[30px]"
+                                        alt="icon"
                                     />
-                                    <p className="font-semibold leading-[28px]">
-                                        {benefit.name}
-                                    </p>
+                                    <p className="font-semibold leading-[28px]">{benefit.name}</p>
                                 </div>
                             ))}
                         </div>
                         <hr className="border-[#F6F5FD]" />
                         <div className="flex flex-col gap-[14px]">
-                            <a
-                                href="booking.html"
-                                className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
-                            >
-                                <img
-                                src="/assets/images/icons/slider-horizontal-white.svg"
-                                className="w-6 h-6"
-                                alt="icon"
-                                />
-                                <span>Book This Office</span>
-                            </a>
+                            <Link to={`/office/${office.slug}/book`}>
+                                <div className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]">
+                                    <img
+                                        src="/assets/images/icons/slider-horizontal-white.svg"
+                                        className="w-6 h-6"
+                                        alt="icon"
+                                    />
+                                    <span>Book This Office</span>
+                                </div>
+                            </Link>
                             <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
                                 <img
-                                src="/assets/images/icons/save-add.svg"
-                                className="w-6 h-6"
-                                alt="icon"
+                                    src="/assets/images/icons/save-add.svg"
+                                    className="w-6 h-6"
+                                    alt="icon"
                                 />
                                 <span>Save for Later</span>
                             </button>
@@ -276,9 +284,9 @@ export default function Details() {
                                 <div className="flex items-center gap-4">
                                     <div className="w-[60px] h-[60px] rounded-full overflow-hidden">
                                         <img
-                                        src="/assets/images/photos/photo-1.png"
-                                        className="w-full h-full object-cover"
-                                        alt="photo"
+                                            src="/assets/images/photos/photo-1.png"
+                                            className="w-full h-full object-cover"
+                                            alt="photo"
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[2px]">
@@ -289,16 +297,16 @@ export default function Details() {
                                 <div className="flex items-center gap-3">
                                     <a href="#">
                                         <img
-                                        src="/assets/images/icons/call-green.svg"
-                                        className="w-10 h-10"
-                                        alt="icon"
+                                            src="/assets/images/icons/call-green.svg"
+                                            className="w-10 h-10"
+                                            alt="icon"
                                         />
                                     </a>
                                     <a href="#">
                                         <img
-                                        src="/assets/images/icons/chat-green.svg"
-                                        className="w-10 h-10"
-                                        alt="icon"
+                                            src="/assets/images/icons/chat-green.svg"
+                                            className="w-10 h-10"
+                                            alt="icon"
                                         />
                                     </a>
                                 </div>
@@ -307,9 +315,9 @@ export default function Details() {
                                 <div className="flex items-center gap-4">
                                     <div className="w-[60px] h-[60px] rounded-full overflow-hidden">
                                         <img
-                                        src="/assets/images/photos/photo-2.png"
-                                        className="w-full h-full object-cover"
-                                        alt="photo"
+                                            src="/assets/images/photos/photo-2.png"
+                                            className="w-full h-full object-cover"
+                                            alt="photo"
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[2px]">
@@ -320,16 +328,16 @@ export default function Details() {
                                 <div className="flex items-center gap-3">
                                     <a href="#">
                                         <img
-                                        src="/assets/images/icons/call-green.svg"
-                                        className="w-10 h-10"
-                                        alt="icon"
+                                            src="/assets/images/icons/call-green.svg"
+                                            className="w-10 h-10"
+                                            alt="icon"
                                         />
                                     </a>
                                     <a href="#">
                                         <img
-                                        src="/assets/images/icons/chat-green.svg"
-                                        className="w-10 h-10"
-                                        alt="icon"
+                                            src="/assets/images/icons/chat-green.svg"
+                                            className="w-10 h-10"
+                                            alt="icon"
                                         />
                                     </a>
                                 </div>
