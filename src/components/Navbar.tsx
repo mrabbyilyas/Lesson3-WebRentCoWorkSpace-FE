@@ -5,14 +5,14 @@ export default function Navbar() {
         <nav className="bg-white">
             <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto">
                 <Link to="/">
-                    <a href="index.html">
+                    <div>
                         <img src="/assets/images/logos/logo.svg" alt="logo" />
-                    </a>
+                    </div>
                 </Link>
                 <ul className="flex items-center gap-[50px] w-fit">
                     <li>
                         <Link to="/">
-                            <a href="#">Browse</a>
+                            <div>Browse</div>
                         </Link>
                     </li>
                     <li>
@@ -26,7 +26,7 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link to="/check-booking">
-                            <a href="#">My Booking</a>
+                            <div>My Booking</div>
                         </Link>
                     </li>
                 </ul>

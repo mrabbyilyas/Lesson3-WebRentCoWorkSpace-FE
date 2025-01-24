@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Office } from "../types/type";
 import { z } from "zod";
 import { bookingSchema } from "../types/validationBooking";
+import apiClient, { isAxiosError } from "../services/apiService";
 
 export default function BookOffice() {
     const baseURL = "http://127.0.0.1:8000/storage";
@@ -31,12 +31,8 @@ export default function BookOffice() {
 
     useEffect(() => {
         console.log("Fetching office data...");
-        axios
-            .get(`http://127.0.0.1:8000/api/office/${slug}`, {
-                headers: {
-                    "X-API-KEY": "fajsdhfsdh3y4893274fwdfwrf322f",
-                },
-            })
+        apiClient
+            .get(`/office/${slug}`)
             .then((response) => {
                 console.log("Office data fetched successfully: ", response.data.data);
 
@@ -58,7 +54,7 @@ export default function BookOffice() {
                 setLoading(false);
             })
             .catch((error: unknown) => {
-                if (axios.isAxiosError(error)) {
+                if (isAxiosError(error)) {
                     console.error("Error fetching office data: ", error.message);
                     setError(error.message);
                 } else {
@@ -105,15 +101,10 @@ export default function BookOffice() {
         setIsLoading(true);
 
         try {
-            const response = await axios.post(
-                "http://127.0.0.1:8000/api/booking-transaction",
+            const response = await apiClient.post(
+                "/booking-transaction",
                 {
                     ...formData,
-                },
-                {
-                    headers: {
-                        "X-API-KEY": "fajsdhfsdh3y4893274fwdfwrf322f",
-                    },
                 }
             );
 
@@ -126,7 +117,7 @@ export default function BookOffice() {
                 },
             });
         } catch (error: unknown) {
-            if (axios.isAxiosError(error)) {
+            if (isAxiosError(error)) {
                 console.error("Error submitting form: ", error.message);
                 setError(error.message);
             } else {
